@@ -4,7 +4,7 @@ import { Button, ButtonGroup } from 'react-bootstrap'
 const SimpleCounterWithUseReducer = () => {
     const initialState = 0;
     const reducer = (state, action)=>{
-        console.log(action)
+        // console.log(action)
         if(action.type == 'decrement'){
             return state-action.payload
         }

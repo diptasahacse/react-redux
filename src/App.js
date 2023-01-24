@@ -5,9 +5,9 @@ import SimpleCounterWithUseReducer from './components/SimpleCounterWithUseReduce
 
 function App() {
   return (
-    <div className="container text-center">
-      <SimpleCounterWithUseReducer/>
-      {/* <LargeFormWithReducer /> */}
+    <div className="container">
+      {/* <SimpleCounterWithUseReducer/> */}
+      <LargeFormWithReducer />
     </div>
   );
 }
