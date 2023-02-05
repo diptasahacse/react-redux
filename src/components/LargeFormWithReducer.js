@@ -1,48 +1,11 @@
 import React, { useReducer } from "react";
-import { Form, FormCheck, InputGroup } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { initialState, reducer } from "../state/formReducer";
 const LargeFormWithReducer = () => {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    address: "",
-    city: "",
-    course: "",
-    gender: null,
-    checked: false,
-    quantity: 0,
-    message: "",
-  };
-
-  const reducer = (state, action) => {
-    console.log(action);
-
-    switch (action.type) {
-      case "INPUT":
-        return { ...state, [action.payLoad.name]: action.payLoad.value };
-      case "TOGGLE":
-        return { ...state, checked: !state.checked };
-      case "INCREMENT":
-        return { ...state, quantity: state.quantity +1 };
-      case "DECREMENT":
-        return { ...state, quantity: state.quantity -1 };
-      default:
-        return state;
-    }
-  };
-
+  const [state, dispatch] = useReducer(reducer, initialState);
   const submit = (event) => {
     event.preventDefault();
-
     console.log(state);
   };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <div className="container mt-5">
       <form onSubmit={submit} className="row g-3 bg-success p-4 rounded">
